@@ -39,6 +39,4 @@ Disabling some services, that won't be needed for deep-learning server
     sudo systemctl stop ModemManager.service
     sudo systemctl disable ModemManager.service
     sudo systemctl stop ModemManager.service
-    # sudo systemctl stop unattended-upgrades.service
-    # sudo systemctl disable unattended-upgrades.service
     
