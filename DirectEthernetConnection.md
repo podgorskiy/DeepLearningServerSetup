@@ -1,4 +1,4 @@
-# DirectEthernetConnection
+# Direct Ethernet Connection
 
 To list all ethernet ports:
 
