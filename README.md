@@ -14,34 +14,36 @@ Server installation is assumed, but everything is applicable for desktop install
 [Intructions for IPMI tool and fan control](./IPMI_fan_control.md)
 
 ## Installing openssh-server
-It is already installed for Server instalation, but might be needed for Desktop installation.
+Needed for remote ssh access. During Server installation, it will ask, if openssh-server should be installed. If it was not installed, or for the Desktop installation, run: 
 
     sudo apt-get install openssh-server
     sudo service ssh start
 
-## Enable universe or multiverse repositories
-This should be enabled by default, unless it was disabeled during installation:
-
-    sudo add-apt-repository universe
-    sudo add-apt-repository multiverse
-    sudo apt update
- 
 ## Build essentials
 Whether you need to build some native code or not, this might be helpfull to build python packages (e.g. dlib)
 
     sudo apt install build-essential
     sudo apt install cmake
  
-## Installing python
-If Server installation is used, then you will need to install python:
-    
-    sudo apt install python3
-    
-Then, to make command `python` reffer to python3:
+## Python
+Ubuntu 18.04 does not include /usr/bin/python (Python 2) by default, but it does include /usr/bin/python3 (Python 3).
+Because of that, running command `python` will result into error `Command 'python' not found`.
+To address that, since python2 is obsolete, I preffer to make a symlink using `update-alternatives`.
+Then, to make command `python` refer to python3:
 
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
-If you have installed both python2 and python3, then you might need to do:
+This will essentially make a symlink /usr/bin/python3 to /usr/bin/python. later on, you can change that with `sudo update-alternatives --config python`
+
+To install pip:
+
+    sudo install python3-pip
+    
+Similarly, make a symlink pip 
+
+    sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
+
+If you have installed both python2 along with python3, then you might need to do (on older distributives, prior 18.x, it may break things):
 
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
@@ -50,13 +52,9 @@ To change version of python:
 
     sudo update-alternatives --config python
 
-Similar for pip:
-
-    sudo install python3-pip
-    sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
-
+    
 ## Installing some frequently used python packages
-I preffer to install frequently used packages globally with pip using sudo. It is not recommended, but to use sudo with pip, but if make a rule, to never install python packages with apt, that works fine. This way, all main packages will be immidiatly available for a new user, and disk space in home directory will not be wasted.
+I prefer to install frequently used packages globally with pip using sudo. It is not recommended using sudo with pip, but if adhere to a rule to never install python packages with apt, that works fine. This way, all main packages will be immidiatly available for a new user, and disk space in home directory will not be wasted.
 
 Some packages that make sence to install globally:
 
@@ -71,3 +69,10 @@ To add a new user to sooders:
 
     sudo usermod -aG sudo <username>
 
+## Enable universe or multiverse repositories
+This should be enabled by default, unless it was disabeled during installation:
+
+    sudo add-apt-repository universe
+    sudo add-apt-repository multiverse
+    sudo apt update
+ 
