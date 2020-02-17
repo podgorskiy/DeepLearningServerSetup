@@ -6,16 +6,24 @@ All writeup is for Ubuntu 18.x LTS (Bionic Beaver). But maybe applicable for new
 
 Server installation is assumed, but everything is applicable for desktop installation too. 
 
-Adding a new user:
+[How to turn Desktop instalation into a server one](./DesktopAndServerInstallation.md)
+
+## Adding a new user
+
+To add a new user:
 
     sudo adduser <username>
   
-Adding new yser to sooders:
+To add a new user to sooders:
 
     sudo usermod -aG sudo <username>
 
-sudo apt-get install openssh-server
-sudo service ssh start
+## Installing openssh-server
+
+    sudo apt-get install openssh-server
+    sudo service ssh start
+
+
 
 sudo apt-get install nfs-common
 sudo nano /etc/ftab
