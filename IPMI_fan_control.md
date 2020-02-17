@@ -1,15 +1,15 @@
 # IPMI fan control
 
+The most complete guide that I found:  https://forums.servethehome.com/index.php?resources/supermicro-x9-x10-x11-fan-speed-control.20/
+___
 Install IPMI tool:
 
     sudo apt install ipmitool
-    
-The most complete guide that I found:  https://forums.servethehome.com/index.php?resources/supermicro-x9-x10-x11-fan-speed-control.20/
-
+___
 To read data from sensors:
 
     sudo ipmitool sensor
-    
+___
 To read current fan mode:
     
     sudo ipmitool raw 0x30 0x45 0x00
@@ -20,11 +20,10 @@ It will return a number, that corresponds to:
 * Full: 1
 * Optimal: 2
 * Heavy IO: 4
-
+___
 To set fans to Full:
 
     sudo ipmitool raw 0x30 0x45 0x01 0x01
-    
 
 To set fans to Optimal:
 
