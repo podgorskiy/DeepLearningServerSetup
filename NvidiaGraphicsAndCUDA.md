@@ -20,8 +20,24 @@ If installing for Desktop version with GUI installed, you can install (not recom
 
 You might need to add Pop!_OS repository first (see below), for the most recent drivers.
 
-## CUDA and cuDNN
+To check ndivia driver installation, run:
 
+    cat /proc/driver/nvidia/version
+
+Or:
+
+    nvidia-smi
+    
+If it gives an error `Failed to initialize NVML: Driver/library version mismatch`, either reboot or run:
+
+    sudo rmmod nvidia_uvm
+    sudo rmmod nvidia_drm
+    sudo rmmod nvidia_modeset
+    sudo rmmod nvidia
+    sudo modprobe nvidia
+
+
+## CUDA and cuDNN
 [Add Pop!_OS repository](https://support.system76.com/articles/cuda/):
 
     sudo echo "deb http://apt.pop-os.org/proprietary bionic main" | sudo tee -a /etc/apt/sources.list.d/pop-proprietary.list
@@ -42,29 +58,43 @@ You can install more than one version of CUDA. To switch versions, run:
 
     sudo update-alternatives --config cuda
     
-In certain cases, you might need to run `sudo nano /etc/environment` and add '/usr/lib/cuda/bin' to the `PATH` variable, e.g.:
-
-    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/cuda/bin"
-    
-After that, you will need to run:
-    
-    sudo ldconfig
-    
 To check CUDA installation, run
 
     nvcc -V
-  
-To check ndivia driver installation, run:
-
-    nvidia-smi
     
-If it gives an error `Failed to initialize NVML: Driver/library version mismatch`, either reboot or run:
+To check that CUDA code is compilable and runable, create a file `cuda_test.cpp` with the following content:
 
-    sudo rmmod nvidia_uvm
-    sudo rmmod nvidia_drm
-    sudo rmmod nvidia_modeset
-    sudo rmmod nvidia
-    sudo modprobe nvidia
+    #include <cuda_runtime.h>
+    #include <stdio.h>
+
+    int main()
+    {
+        int count;
+        if (cudaGetDeviceCount(&count) != 0)
+        {
+            printf("cudaGetDeviceCount return error\n");
+        }
+        printf("Number of devices available: %d\n", count);
+        return 0;
+    }
+
+Then run:
+
+    nvcc cuda_test.cpp -o cuda_test
+    ./cuda_test
+    
+It should comiple and run without error and print number of available gpus.
+  
+### If it does not work
+In certain cases (e.g. CUDA was installed some other way), you might need to run `sudo nano /etc/environment` and add `/usr/lib/cuda/bin` to the `PATH` variable, e.g.:
+
+    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/cuda/bin"
+    
+You might need to check `/etc/ld.so.conf.d/`, it should contain a file cuda-*.conf file with `/usr/lib/cuda/lib64`. If there is no one, you will need to create one.
+
+After that, you will need to run:
+    
+    sudo ldconfig
 
 
     
