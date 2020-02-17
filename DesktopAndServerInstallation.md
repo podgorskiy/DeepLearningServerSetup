@@ -22,3 +22,23 @@ To do so, run:
     sudo systemctl enable multi-user.target --force
 
 After reboot, it will use text mode. To launch GUI run: `startx`
+
+### Disabling services that are part of Desktop installation:
+
+Disabling some services, that won't be needed for deep-learning server
+
+    sudo systemctl stop whoopsie.service
+    sudo systemctl disable whoopsie.service
+    sudo systemctl stop kerneloops.service
+    sudo systemctl disable kerneloops.service
+    sudo systemctl stop cups.service
+    sudo systemctl disable cups.service
+    sudo systemctl stop avahi-daemon.service
+    sudo systemctl stop avahi-daemon.socket
+    sudo systemctl disable avahi-daemon.service
+    sudo systemctl stop ModemManager.service
+    sudo systemctl disable ModemManager.service
+    sudo systemctl stop ModemManager.service
+    # sudo systemctl stop unattended-upgrades.service
+    # sudo systemctl disable unattended-upgrades.service
+    
