@@ -1,5 +1,4 @@
 # Deep-Learning Server Setup
-
 This is a short writeup on setting a deep-learning server (some aspects applicable for desktop too).
 
 All writeup is for Ubuntu 18.x LTS (Bionic Beaver). But maybe applicable for newer versions.
@@ -9,11 +8,15 @@ Server installation is assumed, but everything is applicable for desktop install
 [How to turn Desktop instalation into a server one](./DesktopAndServerInstallation.md)
 
 ## Nvidia drivers, CUDA, cuDNN
-
 [Intructions for Nvidia drivers, CUDA, cuDNN installation](./NvidiaGraphicsAndCUDA.md)
 
-## Adding a new user
+## Enable universe or multiverse repositories
+This should be enabled by default, unless it was disabeled during installation:
 
+    sudo add-apt-repository universe
+    sudo add-apt-repository multiverse
+
+## Adding a new user
 To add a new user:
 
     sudo adduser <username>
