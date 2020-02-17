@@ -4,7 +4,7 @@ Ubuntu Desktop and Server installation have identical kernels, and mainly differ
 
 In fact, one can use desktop installation for the deep-learning server.
 
-You can choose to [delete all GUI](https://askubuntu.com/questions/856373/how-do-you-completely-remove-ubuntu-desktop-along-with-all-installed-packages-wi) from the installation to save the disk space:
+You can choose to [delete all GUI](https://askubuntu.com/questions/856373/how-do-you-completely-remove-ubuntu-desktop-along-with-all-installed-packages-wi) [from the installation](https://www.techandme.se/completley-remove-ubuntu-desktop-from-a-ubuntu-server/) to save the disk space:
 
     sudo service gdm stop
     sudo apt purge ubuntu-desktop -y && sudo apt autoremove -y && sudo apt autoclean
