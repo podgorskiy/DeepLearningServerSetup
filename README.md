@@ -16,6 +16,30 @@ This should be enabled by default, unless it was disabeled during installation:
     sudo add-apt-repository universe
     sudo add-apt-repository multiverse
     sudo apt update
+    
+## Installing python
+If Server installation is used, then you will need to install python:
+    
+    sudo apt install python3
+    
+Then, to make command `python` reffer to python3:
+
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+
+If you have installed both python2 and python3, then you might need to do:
+
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+   
+To change version of python:
+
+    sudo update-alternatives --config python
+
+Similar for pip:
+
+    sudo install python3-pip
+    sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
+
 
 ## Adding a new user
 To add a new user:
