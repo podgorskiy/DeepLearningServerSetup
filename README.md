@@ -15,6 +15,7 @@ This should be enabled by default, unless it was disabeled during installation:
 
     sudo add-apt-repository universe
     sudo add-apt-repository multiverse
+    sudo apt update
 
 ## Adding a new user
 To add a new user:
