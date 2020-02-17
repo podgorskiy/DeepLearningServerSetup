@@ -18,6 +18,8 @@ If installing for Desktop version with GUI installed, you can install (not recom
   
     sudo apt install nvidia-driver-440
 
+You might need to add Pop!_OS repository first (see below), for the most recent drivers.
+
 ## CUDA and cuDNN
 
 [Add Pop!_OS repository](https://support.system76.com/articles/cuda/):
