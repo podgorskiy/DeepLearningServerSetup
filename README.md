@@ -5,7 +5,7 @@ All writeup is for Ubuntu 18.x LTS (Bionic Beaver). But maybe applicable for new
 
 Server installation is assumed, but everything is applicable for desktop installation too. 
 
-[How to turn Desktop instalation into a server one](./DesktopAndServerInstallation.md)
+[Desktop and server instalations](./DesktopAndServerInstallation.md)
 
 ## Nvidia drivers, CUDA, cuDNN
 [Intructions for Nvidia drivers, CUDA, cuDNN installation](./NvidiaGraphicsAndCUDA.md)
