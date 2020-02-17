@@ -7,17 +7,23 @@ Server installation is assumed, but everything is applicable for desktop install
 
 [Desktop and server instalations](./DesktopAndServerInstallation.md)
 
-## Nvidia drivers, CUDA, cuDNN
-[Intructions for Nvidia drivers, CUDA, cuDNN installation](./NvidiaGraphicsAndCUDA.md)
-
-## IPMI tool and fan control
-[Intructions for IPMI tool and fan control](./IPMI_fan_control.md)
-
 ## Installing openssh-server
 Needed for remote ssh access. During Server installation, it will ask, if openssh-server should be installed. If it was not installed, or for the Desktop installation, run: 
 
     sudo apt-get install openssh-server
     sudo service ssh start
+
+## Setting up NFS and SSHFS
+[Intructions for NFS and SSHFS](./SettingUpNFS.md)
+
+## Setting up direct ethernet connection between machines.
+[Intructions direct ethernet connection between machines](./DirectEthernetConnection.md)
+
+## Nvidia drivers, CUDA, cuDNN
+[Intructions for Nvidia drivers, CUDA, cuDNN installation](./NvidiaGraphicsAndCUDA.md)
+
+## IPMI tool and fan control
+[Intructions for IPMI tool and fan control](./IPMI_fan_control.md)
 
 ## Build essentials
 Whether you need to build some native code or not, this might be helpfull to build python packages (e.g. dlib)
