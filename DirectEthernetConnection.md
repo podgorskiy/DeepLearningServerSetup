@@ -14,7 +14,7 @@ To check if port is connected to something:
 
 Will print `1` if connected and `0` if not.
 
-Check active eathernet port and binded IP addresses:
+Check active eathernet ports and binded IP addresses:
 
     ifconfig
     
