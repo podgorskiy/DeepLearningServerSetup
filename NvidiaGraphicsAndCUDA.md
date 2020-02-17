@@ -1,7 +1,7 @@
 # Installing Nvidia drivers
 
-My preffered way to install nvidia drivers, is to use `apt-get` to install the driver from cannonical package repository.
-For CUDA driver and cuDNN I preffer to install it from Pop!_OS repositories.
+My preferred way to install nvidia drivers is to use `apt-get` to install the driver from cannonical package repository.
+For CUDA driver and cuDNN, I prefer to install it from Pop!_OS repositories.
 
 ## Installing Nvidia graphics driver
 
@@ -9,7 +9,7 @@ To list available nvidia drivers, run:
 
     apt search nvidia-driver
    
-If installing for server installation you will need headless version:
+If installing for server installation, you will need headless version:
 
     sudo apt install nvidia-headless-440
     sudo apt install nvidia-utils-440
@@ -44,7 +44,7 @@ If it gives an error `Failed to initialize NVML: Driver/library version mismatch
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 204DD8AEC33A7AFF
     sudo apt update
 
-If that doen't work, it might be due to a firewall, then try:
+If that doesn't work, it might be due to a firewall, then try:
 
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key 204DD8AEC33A7AFF
     sudo apt update
@@ -71,7 +71,7 @@ To check that CUDA code is compilable and runable, create a file `cuda_test.cpp`
 int main()
 {
 	int count;
-  	if (cudaGetDeviceCount(&count) != 0)
+	if (cudaGetDeviceCount(&count) != 0)
 	{
 		printf("cudaGetDeviceCount return error\n");
 	}
@@ -85,7 +85,7 @@ Then run:
     nvcc cuda_test.cpp -o cuda_test
     ./cuda_test
     
-It should comiple and run without error and print number of available gpus.
+It should compile and run without error and print the number of available gpus.
   
 ### If it does not work
 In certain cases (e.g. CUDA was installed some other way), you might need to run `sudo nano /etc/environment` and add `/usr/lib/cuda/bin` to the `PATH` variable, e.g.:
