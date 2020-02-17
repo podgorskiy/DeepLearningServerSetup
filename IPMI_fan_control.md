@@ -1,6 +1,6 @@
 # IPMI fan control
 
-Install IMPI tool:
+Install IPMI tool:
 
     sudo apt install ipmitool
     
