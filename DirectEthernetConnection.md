@@ -3,21 +3,24 @@
 To list all ethernet ports:
 
     ip link
-    
+___    
+
 To see device info of the ethernet port:
 
     ethtool <device name>
-    
+---
 To check if port is connected to something:
 
     cat /sys/class/net/<device name>/carrier
 
 Will print `1` if connected and `0` if not.
 
+---
+
 Check active eathernet ports and binded IP addresses:
 
     ifconfig
-    
+---
 Set static IP addpress for the device:
 
     sudo nano /etc/netplan/01-netcfg.yaml
@@ -41,7 +44,7 @@ Example configuration for a machine with ports eno1 (connected to internet) and 
 To apply config:
 
     sudo netplan apply
-
+---
 Check writing speed:
     
     dd if=/dev/zero of=/data/test.img bs=10M count=256 conv=fdatasync
