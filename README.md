@@ -10,6 +10,15 @@ Server installation is assumed, but everything is applicable for desktop install
 ## Nvidia drivers, CUDA, cuDNN
 [Intructions for Nvidia drivers, CUDA, cuDNN installation](./NvidiaGraphicsAndCUDA.md)
 
+## IPMI tool and fan control
+[Intructions for IPMI tool and fan control](./IPMI_fan_control.md)
+
+## Installing openssh-server
+It is already installed for Server instalation, but might be needed for Desktop installation.
+
+    sudo apt-get install openssh-server
+    sudo service ssh start
+
 ## Enable universe or multiverse repositories
 This should be enabled by default, unless it was disabeled during installation:
 
@@ -61,13 +70,4 @@ To add a new user:
 To add a new user to sooders:
 
     sudo usermod -aG sudo <username>
-
-## Installing openssh-server
-It is already installed for Server instalation, but might be needed for Desktop installation.
-
-    sudo apt-get install openssh-server
-    sudo service ssh start
-
-## IPMI tool and fan control
-[Intructions for IPMI tool and fan control](./IPMI_fan_control.md)
 
