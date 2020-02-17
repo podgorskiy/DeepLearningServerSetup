@@ -1,5 +1,5 @@
 # Deep-Learning Server Setup
-This writeup is my notes on setting a deep-learning server (some aspects applicable for a desktop machine too).
+This writeup is my notes on setting up a deep-learning server (some aspects applicable for a desktop machine too).
 Pullrequests are welcome.
 
 All writeup is for Ubuntu 18.x LTS (Bionic Beaver). But maybe applicable for newer versions.
