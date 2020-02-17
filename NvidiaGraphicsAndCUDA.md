@@ -63,20 +63,22 @@ To check CUDA installation, run
     nvcc -V
     
 To check that CUDA code is compilable and runable, create a file `cuda_test.cpp` with the following content:
+    
+```cpp
+#include <cuda_runtime.h>
+#include <stdio.h>
 
-    #include <cuda_runtime.h>
-    #include <stdio.h>
-
-    int main()
-    {
-        int count;
-        if (cudaGetDeviceCount(&count) != 0)
-        {
-            printf("cudaGetDeviceCount return error\n");
-        }
-        printf("Number of devices available: %d\n", count);
-        return 0;
-    }
+int main()
+{
+	int count;
+  	if (cudaGetDeviceCount(&count) != 0)
+	{
+		printf("cudaGetDeviceCount return error\n");
+	}
+	printf("Number of devices available: %d\n", count);
+	return 0;
+}
+```
 
 Then run:
 
